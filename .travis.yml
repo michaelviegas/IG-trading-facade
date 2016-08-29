@@ -1,12 +1,14 @@
 language: csharp
 solution: IgTradingFacade.sln
+sudo: required
+dist: trusty
 branches:
   only:
     - master
     - develop
-install:
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
   - nuget restore IgTradingFacade.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-script:
-  - xbuild /p:Configuration=Release IgTradingFacade.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./IgTradingFacade.Tests/bin/Release/IgTradingFacade.Tests.dll
+after_script:
+  - nunit-console IgTradingFacade.Tests/bin/Release/IgTradingFacade.Tests.dll
