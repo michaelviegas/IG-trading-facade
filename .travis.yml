@@ -10,7 +10,7 @@ before_install:
   - sudo apt-get install nunit-console
 before_script:
   - nuget restore ./IgTradingFacade.sln
-  - nuget pack ./IgTradingFacade/IgTradingFacade.nuspec -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release  
+  - nuget pack ./IgTradingFacade.nuspec -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release  
 after_success:
   - nunit-console ./IgTradingFacade.Tests/bin/Release/IgTradingFacade.Tests.dll
 deploy:
