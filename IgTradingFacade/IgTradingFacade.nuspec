@@ -11,6 +11,10 @@
     <description>.NET facade for IG REST trading API</description>
     <copyright>Copyright 2016</copyright>
     <tags>IG trading</tags>
+	<dependencies>
+	  <dependency id="Microsoft.AspNet.WebApi.Client" />
+	  <dependency id="Newtonsoft.Json" />
+	</dependencies>
   </metadata>
   <files>
 	<file src="bin\Release\*.*" target="lib\net45\" />
