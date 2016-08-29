@@ -1,11 +1,11 @@
 ﻿using IgTradingFacade.Messages;
 using IgTradingFacade.Messages.Interfaces;
 using IgTradingFacade.Tests.Examples;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace IgTradingFacade.Tests.MessageTests
 {
-    [TestClass]
+    [TestFixture]
     public class AccountInfoTests : ResponseMessageTestBase<IAccountInfo, AccountInfo>
     {
         private const double Balance = 11.11;
@@ -13,7 +13,7 @@ namespace IgTradingFacade.Tests.MessageTests
         private const double ProfitLoss = 33.33;
         private const double Available = 44.44;
 
-        [TestMethod]
+        [Test]
         public void ExternalSystemResponseRoundTrip()
         {
             var message = new AccountInfo

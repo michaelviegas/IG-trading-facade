@@ -1,6 +1,6 @@
 ﻿using IgTradingFacade.Messages.Interfaces;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using NUnit.Framework;
 using System;
 
 namespace IgTradingFacade.Tests.MessageTests

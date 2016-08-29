@@ -1,13 +1,13 @@
 ﻿using IgTradingFacade.Messages;
 using IgTradingFacade.Messages.Interfaces;
 using IgTradingFacade.Tests.Examples;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace IgTradingFacade.Tests.MessageTests
 {
-    [TestClass]
+    [TestFixture]
     public class UserAccountTests : ResponseMessageTestBase<IUserAccount, UserAccount>
     {
         private const string CurrencyIsoCode = "dummyCurrencyIsoCode";
@@ -26,7 +26,7 @@ namespace IgTradingFacade.Tests.MessageTests
 
         private const int TotalAccounts = 3;
 
-        [TestMethod]
+        [Test]
         public void ExternalSystemResponseRoundTrip()
         {
             var message = StubMessage();

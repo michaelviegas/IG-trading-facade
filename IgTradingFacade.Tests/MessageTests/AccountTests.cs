@@ -1,11 +1,11 @@
 ﻿using IgTradingFacade.Messages;
 using IgTradingFacade.Messages.Interfaces;
 using IgTradingFacade.Tests.Examples;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace IgTradingFacade.Tests.MessageTests
 {
-    [TestClass]
+    [TestFixture]
     public class AccountTests : ResponseMessageTestBase<IAccount, Account>
     {
         private const string AccountId = "dummyAccountId";
@@ -13,7 +13,7 @@ namespace IgTradingFacade.Tests.MessageTests
         private const bool Preferred = true;
         private const string AccountType = "dummyAccountType";
 
-        [TestMethod]
+        [Test]
         public void ExternalSystemResponseRoundTrip()
         {
             var message = new Account

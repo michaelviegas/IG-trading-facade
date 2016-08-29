@@ -1,19 +1,19 @@
 ﻿using IgTradingFacade.Messages;
 using IgTradingFacade.Messages.Interfaces;
 using IgTradingFacade.Tests.Examples;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using NUnit.Framework;
 
 namespace IgTradingFacade.Tests.MessageTests
 {
-    [TestClass]
+    [TestFixture]
     public class UserCredentialsTests : RequestMessageTestBase<IUserCredentials, UserCredentials>
     {
         private const string Username = "dummyUsername";
         private const string Password = "dummyPassword";
         private const bool EncryptedPassword = true;
 
-        [TestMethod]
+        [Test]
         public void UserCredentialsRequestRoundTrip()
         {
             var mockMessage = new Mock<IUserCredentials>();
@@ -28,7 +28,7 @@ namespace IgTradingFacade.Tests.MessageTests
             Assert.AreEqual(EncryptedPassword, request.EncryptedPassword);
         }
 
-        [TestMethod]
+        [Test]
         public void ClientCredentialsMinimumRequest()
         {
             var request = MinimumRequest();
@@ -38,7 +38,7 @@ namespace IgTradingFacade.Tests.MessageTests
             Assert.AreEqual(default(bool), request.EncryptedPassword);
         }
 
-        [TestMethod]
+        [Test]
         public void ClientCredentialsEmptyRequest()
         {
             DeserialiseEmptyRequest();
