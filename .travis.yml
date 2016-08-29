@@ -10,6 +10,7 @@ before_install:
   - sudo apt-get install nunit-console
 before_script:
   - nuget restore ./IgTradingFacade.sln
+  - if test "$TRAVIS_BRANCH" == "master"; nuget pack ./IgTradingFacade/IgTradingFacade.csproj -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release; fi
 after_success:
   - nunit-console ./IgTradingFacade.Tests/bin/Release/IgTradingFacade.Tests.dll
-  - ./deploy.sh
+  - if test "$TRAVIS_BRANCH" == "master"; nuget push ./*.nupkg $NUGET_API_KEY -Source https://www.nuget.org/api/v2/package; fi
