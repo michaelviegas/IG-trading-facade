@@ -16,7 +16,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - nuget pack ./IgTradingFacade/IgTradingFacade.csproj -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release 
-    - nuget push *.nupkg $NUGET_API_KEY -Source https://www.nuget.org/api/v2/package
+    - nuget pack $TRAVIS_BUILD/IgTradingFacade/IgTradingFacade.csproj -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release 
+    - nuget push $TRAVIS_BUILD/*.nupkg $NUGET_API_KEY -Source https://www.nuget.org/api/v2/package
   on:
     branch: master
