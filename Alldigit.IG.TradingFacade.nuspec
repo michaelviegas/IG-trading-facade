@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>IG.TradingFacade</id>
+    <version>$version$</version>
+    <title>IG Trading Facade</title>
+    <authors>Michael Viegas</authors>
+	<owners>Alldigit Ltd</owners>
+    <licenseUrl>https://github.com/michaelviegas/IG-trading-facade/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/michaelviegas/IG-trading-facade</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET facade for IG REST trading API</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>IG trading</tags>
+	<dependencies>
+		<group targetFramework="net45">
+			<dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
+			<dependency id="Newtonsoft.Json" version="9.0.1" />
+		</group>
+	</dependencies>
+  </metadata>
+  <files>
+	<file src="Alldigit.IG.TradingFacade/bin/Release/Alldigit.IG.TradingFacade.dll" target="lib\net45\" />
+  </files>
+</package>

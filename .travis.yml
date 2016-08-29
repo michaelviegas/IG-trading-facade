@@ -1,5 +1,5 @@
 language: csharp
-solution: IgTradingFacade.sln
+solution: Alldigit.IG.TradingFacade.sln
 sudo: required
 dist: trusty
 branches:
@@ -9,10 +9,10 @@ branches:
 before_install:
   - sudo apt-get install nunit-console
 before_script:
-  - nuget restore ./IgTradingFacade.sln
+  - nuget restore ./Alldigit.IG.TradingFacade.sln
 after_success:
-  - nunit-console ./IgTradingFacade.Tests/bin/Release/IgTradingFacade.Tests.dll
-  - nuget pack ./IgTradingFacade.nuspec -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release  
+  - nunit-console ./Alldigit.IG.TradingFacade.Tests/bin/Release/Alldigit.IG.TradingFacade.Tests.dll
+  - nuget pack ./Alldigit.IG.TradingFacade.nuspec -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release  
 deploy:
   provider: script
   skip_cleanup: true
