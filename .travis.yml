@@ -10,5 +10,12 @@ before_install:
   - sudo apt-get install nunit-console
 before_script:
   - nuget restore IgTradingFacade.sln
-after_script:
+after_success:
   - nunit-console IgTradingFacade.Tests/bin/Release/IgTradingFacade.Tests.dll
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - cd IgTradingFacade && nuget pack IgTradingFacade.nuspec -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release && nuget push *.nupkg $NUGET_API_KEY -verbosity detailed
+  on:
+    branch: master
