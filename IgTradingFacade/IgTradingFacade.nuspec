@@ -11,5 +11,6 @@
     <description>.NET facade for IG REST trading API</description>
     <copyright>Copyright 2016</copyright>
     <tags>IG trading</tags>
+	<dependencies />
   </metadata>
 </package>
