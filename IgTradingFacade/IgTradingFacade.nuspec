@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>IGTrading.Facade</id>
+    <version>$version$</version>
+    <title>IG Trading Facade</title>
+    <authors>Michael Viegas</authors>
+    <licenseUrl>https://github.com/michaelviegas/IG-trading-facade/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/michaelviegas/IG-trading-facade</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET facade for IG REST trading API</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>IG trading</tags>
+  </metadata>
+</package>
