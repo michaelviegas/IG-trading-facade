@@ -9,14 +9,7 @@ branches:
 before_install:
   - sudo apt-get install nunit-console
 before_script:
-  - nuget restore IgTradingFacade.sln
+  - nuget restore ./IgTradingFacade.sln
 after_success:
-  - nunit-console IgTradingFacade.Tests/bin/Release/IgTradingFacade.Tests.dll
-deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-    - nuget pack $TRAVIS_BUILD/IgTradingFacade/IgTradingFacade.csproj -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release 
-    - nuget push $TRAVIS_BUILD/*.nupkg $NUGET_API_KEY -Source https://www.nuget.org/api/v2/package
-  on:
-    branch: master
+  - nunit-console ./IgTradingFacade.Tests/bin/Release/IgTradingFacade.Tests.dll
+  - ./deploy.sh
