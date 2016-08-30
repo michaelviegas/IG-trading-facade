@@ -1,6 +1,6 @@
 ﻿using Alldigit.IG.TradingFacade.Messages.Interfaces;
 
-namespace Alldigit.IG.TradingFacade.Assemblers
+namespace Alldigit.IG.TradingFacade.Helpers
 {
     public class AuthenticationResultAssembler : IAuthenticationResult
     {

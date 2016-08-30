@@ -48,11 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assemblers\AuthenticationResultAssembler.cs" />
+    <Compile Include="Helpers\AuthenticationResultAssembler.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\IgEnvironment.cs" />
     <Compile Include="Exceptions\GeneralApiAccessFailedException.cs" />
     <Compile Include="FacadeBase.cs" />
+    <Compile Include="Helpers\HttpResponseMessageReader.cs" />
     <Compile Include="Http\HttpClientActionWithBody.cs" />
     <Compile Include="Http\HttpClientAction.cs" />
     <Compile Include="Http\HttpClientActionWithBodyAndResponse.cs" />
@@ -61,7 +62,7 @@
     <Compile Include="Http\Interfaces\IHttpClientAction.cs" />
     <Compile Include="Http\Interfaces\IHttpClientActionWithBody.cs" />
     <Compile Include="Http\Interfaces\IHttpClientActionWithBodyAndResponse.cs" />
-    <Compile Include="Assemblers\MessageAssembler.cs" />
+    <Compile Include="Helpers\MessageAssembler.cs" />
     <Compile Include="Helpers\ModelExtensions.cs" />
     <Compile Include="Interfaces\IFacadeBaseCallback.cs" />
     <Compile Include="Messages\Account.cs" />

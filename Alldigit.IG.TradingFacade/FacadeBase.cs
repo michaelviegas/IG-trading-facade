@@ -1,5 +1,6 @@
 ﻿using Alldigit.IG.TradingFacade.Enums;
 using Alldigit.IG.TradingFacade.Exceptions;
+using Alldigit.IG.TradingFacade.Helpers;
 using Alldigit.IG.TradingFacade.Http;
 using Alldigit.IG.TradingFacade.Http.Interfaces;
 using Alldigit.IG.TradingFacade.Interfaces;
@@ -70,7 +71,8 @@ namespace Alldigit.IG.TradingFacade
 
         private async Task ExtractException(HttpResponseMessage response)
         {
-            var error = await ReadResponseContent<Error>(response);
+            var reader = new HttpResponseMessageReader(response);
+            var error = await reader.ReadContent<Error>();
 
             if (error != null)
             {
@@ -106,13 +108,6 @@ namespace Alldigit.IG.TradingFacade
         protected static HttpClientWrapper AnonymousHttpClient(string endpoint)
         {
             return Http.HttpClientFactory.Create(endpoint);
-        }
-
-        protected Task<TResponse> ReadResponseContent<TResponse>(HttpResponseMessage response)
-        {
-            return (response != null && response.Content != null)
-                ? response.Content.ReadAsAsync<TResponse>()
-                : Task.FromResult(default(TResponse));
         }
     }
 }

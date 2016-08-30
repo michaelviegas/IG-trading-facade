@@ -1,10 +1,8 @@
-﻿using Alldigit.IG.TradingFacade.Assemblers;
-using Alldigit.IG.TradingFacade.Enums;
+﻿using Alldigit.IG.TradingFacade.Enums;
+using Alldigit.IG.TradingFacade.Helpers;
 using Alldigit.IG.TradingFacade.Interfaces;
 using Alldigit.IG.TradingFacade.Messages;
 using Alldigit.IG.TradingFacade.Messages.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -26,32 +24,21 @@ namespace Alldigit.IG.TradingFacade
                 .To("gateway/deal/session")
                 .ForHttpResponse();
 
-            var session = ReadResponseSessionHeaders(response);
-            var userAccount = await ReadResponseContent<UserAccount>(response);
+            return await BuildAuthenticationResult(response);
+        }
+
+        private async Task<IAuthenticationResult> BuildAuthenticationResult(HttpResponseMessage message)
+        {
+            var reader = new HttpResponseMessageReader(message);
+            var session = new Session
+            {
+                ActiveAccountToken = reader.ReadHeaderValue(Constants.ActiveAccountSessionTokenHeaderName),
+                ClientToken = reader.ReadHeaderValue(Constants.ClientSessionTokenHeaderName)
+            };
+            var userAccount = await reader.ReadContent<UserAccount>();
 
             return new AuthenticationResultAssembler(session, userAccount);
         }
 
-        private static ISession ReadResponseSessionHeaders(HttpResponseMessage response)
-        {
-            if (response.Headers == null)
-                return null;
-
-            return new Session
-            {
-                ActiveAccountToken = ReadResponseHeaderValue(response, Constants.ActiveAccountSessionTokenHeaderName),
-                ClientToken = ReadResponseHeaderValue(response, Constants.ClientSessionTokenHeaderName)
-            };
-        }
-
-        private static string ReadResponseHeaderValue(HttpResponseMessage response, string headerName)
-        {
-            IEnumerable<string> values;
-            if (response.Headers.TryGetValues(headerName, out values))
-            {
-                return values.FirstOrDefault();
-            }
-            return null;
-        }
     }
 }
