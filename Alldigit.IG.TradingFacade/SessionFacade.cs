@@ -1,57 +1,42 @@
-﻿using Alldigit.IG.TradingFacade.Assemblers;
+﻿using Alldigit.IG.TradingFacade.Contracts;
+using Alldigit.IG.TradingFacade.Contracts.Messages;
 using Alldigit.IG.TradingFacade.Enums;
-using Alldigit.IG.TradingFacade.Interfaces;
-using Alldigit.IG.TradingFacade.Messages;
-using Alldigit.IG.TradingFacade.Messages.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+using Alldigit.IG.TradingFacade.Logic;
+using System;
 using System.Threading.Tasks;
 
 namespace Alldigit.IG.TradingFacade
 {
-    public class SessionFacade : FacadeBase, ISessionFacade
+    public class SessionFacade : ISessionFacade
     {
-        public SessionFacade(IgEnvironment environment)
-            : base(environment)
-        {}
+        protected readonly SessionRestClient _restClient;
 
-        public async Task<IAuthenticationResult> Login(string igApiKey, IUserCredentials userCredentials)
+        public SessionFacade(IGEnvironment environment)
         {
-            var request = MessageAssembler.ToMessage<IUserCredentials, UserCredentials>(userCredentials);
-            var response = await WithAnonymousClient()
-                .ForApplication(igApiKey)
-                .OnVersion(2)
-                .Post(request)
-                .To("gateway/deal/session")
-                .ForHttpResponse();
+            var endpoint = GetEnvironmentEndpoint(environment);
 
-            var session = ReadResponseSessionHeaders(response);
-            var userAccount = await ReadResponseContent<UserAccount>(response);
-
-            return new AuthenticationResultAssembler(session, userAccount);
+            _restClient = new SessionRestClient(endpoint, null);
         }
 
-        private static ISession ReadResponseSessionHeaders(HttpResponseMessage response)
+        public Task<IAuthenticationResult> Login(string apiKey, IUserCredentials userCredentials)
         {
-            if (response.Headers == null)
-                return null;
-
-            return new Session
-            {
-                ActiveAccountToken = ReadResponseHeaderValue(response, Constants.ActiveAccountSessionTokenHeaderName),
-                ClientToken = ReadResponseHeaderValue(response, Constants.ClientSessionTokenHeaderName)
-            };
+            return _restClient.Login(apiKey, userCredentials);
         }
 
-        private static string ReadResponseHeaderValue(HttpResponseMessage response, string headerName)
+        private static string GetEnvironmentEndpoint(IGEnvironment environment)
         {
-            IEnumerable<string> values;
-            if (response.Headers.TryGetValues(headerName, out values))
+            switch (environment)
             {
-                return values.FirstOrDefault();
+                case IGEnvironment.Demo:
+                    return Endpoints.Demo;
+
+                case IGEnvironment.Live:
+                    return Endpoints.Live;
+
+                default:
+                    throw new ArgumentException("Unknown IG environment", "environment");
             }
-            return null;
+
         }
     }
 }

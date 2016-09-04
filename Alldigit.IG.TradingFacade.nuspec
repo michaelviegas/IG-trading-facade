@@ -21,5 +21,6 @@
   </metadata>
   <files>
 	<file src="Alldigit.IG.TradingFacade/bin/Release/Alldigit.IG.TradingFacade.dll" target="lib\net45\" />
+	<file src="Alldigit.IG.TradingFacade/bin/Release/Alldigit.IG.TradingFacade.Contracts.dll" target="lib\net45\" />
   </files>
 </package>
