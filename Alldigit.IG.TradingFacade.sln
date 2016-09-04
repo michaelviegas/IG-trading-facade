@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alldigit.IG.TradingFacade",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alldigit.IG.TradingFacade.Tests", "Alldigit.IG.TradingFacade.Tests\Alldigit.IG.TradingFacade.Tests.csproj", "{8A9F60AE-E2E4-4548-A7A9-D6DF8D643DFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alldigit.IG.TradingFacade.Logic", "Alldigit.IG.TradingFacade.Logic\Alldigit.IG.TradingFacade.Logic.csproj", "{3E42A2A5-4B06-47CA-A436-8E1B28EF3432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alldigit.IG.TradingFacade.Contracts", "Alldigit.IG.TradingFacade.Contracts\Alldigit.IG.TradingFacade.Contracts.csproj", "{EAA51D22-FA00-4FDB-98B2-977827953682}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8A9F60AE-E2E4-4548-A7A9-D6DF8D643DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A9F60AE-E2E4-4548-A7A9-D6DF8D643DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A9F60AE-E2E4-4548-A7A9-D6DF8D643DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E42A2A5-4B06-47CA-A436-8E1B28EF3432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E42A2A5-4B06-47CA-A436-8E1B28EF3432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E42A2A5-4B06-47CA-A436-8E1B28EF3432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E42A2A5-4B06-47CA-A436-8E1B28EF3432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA51D22-FA00-4FDB-98B2-977827953682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAA51D22-FA00-4FDB-98B2-977827953682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAA51D22-FA00-4FDB-98B2-977827953682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA51D22-FA00-4FDB-98B2-977827953682}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

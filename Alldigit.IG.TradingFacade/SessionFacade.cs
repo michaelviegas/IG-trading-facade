@@ -1,44 +1,42 @@
-﻿using Alldigit.IG.TradingFacade.Enums;
-using Alldigit.IG.TradingFacade.Helpers;
-using Alldigit.IG.TradingFacade.Interfaces;
-using Alldigit.IG.TradingFacade.Messages;
-using Alldigit.IG.TradingFacade.Messages.Interfaces;
-using System.Net.Http;
+﻿using Alldigit.IG.TradingFacade.Contracts;
+using Alldigit.IG.TradingFacade.Contracts.Messages;
+using Alldigit.IG.TradingFacade.Enums;
+using Alldigit.IG.TradingFacade.Logic;
+using System;
 using System.Threading.Tasks;
 
 namespace Alldigit.IG.TradingFacade
 {
-    public class SessionFacade : FacadeBase, ISessionFacade
+    public class SessionFacade : ISessionFacade
     {
-        public SessionFacade(IgEnvironment environment)
-            : base(environment)
-        {}
+        protected readonly SessionRestClient _restClient;
 
-        public async Task<IAuthenticationResult> Login(string igApiKey, IUserCredentials userCredentials)
+        public SessionFacade(IGEnvironment environment)
         {
-            var request = MessageAssembler.ToMessage<IUserCredentials, UserCredentials>(userCredentials);
-            var response = await WithAnonymousClient()
-                .ForApplication(igApiKey)
-                .OnVersion(2)
-                .Post(request)
-                .To("gateway/deal/session")
-                .ForHttpResponse();
+            var endpoint = GetEnvironmentEndpoint(environment);
 
-            return await BuildAuthenticationResult(response);
+            _restClient = new SessionRestClient(endpoint, null);
         }
 
-        private async Task<IAuthenticationResult> BuildAuthenticationResult(HttpResponseMessage message)
+        public Task<IAuthenticationResult> Login(string apiKey, IUserCredentials userCredentials)
         {
-            var reader = new HttpResponseMessageReader(message);
-            var session = new Session
+            return _restClient.Login(apiKey, userCredentials);
+        }
+
+        private static string GetEnvironmentEndpoint(IGEnvironment environment)
+        {
+            switch (environment)
             {
-                ActiveAccountToken = reader.ReadHeaderValue(Constants.ActiveAccountSessionTokenHeaderName),
-                ClientToken = reader.ReadHeaderValue(Constants.ClientSessionTokenHeaderName)
-            };
-            var userAccount = await reader.ReadContent<UserAccount>();
+                case IGEnvironment.Demo:
+                    return Endpoints.Demo;
 
-            return new AuthenticationResultAssembler(session, userAccount);
+                case IGEnvironment.Live:
+                    return Endpoints.Live;
+
+                default:
+                    throw new ArgumentException("Unknown IG environment", "environment");
+            }
+
         }
-
     }
 }

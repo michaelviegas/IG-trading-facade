@@ -1,6 +1,6 @@
-﻿using Alldigit.IG.TradingFacade.Messages;
-using Alldigit.IG.TradingFacade.Messages.Interfaces;
-using Alldigit.IG.TradingFacade.Tests.Examples;
+﻿using Alldigit.IG.TradingFacade.Contracts.Messages;
+using Alldigit.IG.TradingFacade.Logic.Messages;
+using Alldigit.IG.TradingFacade.Tests.Support;
 using Moq;
 using NUnit.Framework;
 

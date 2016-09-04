@@ -1,4 +1,4 @@
-﻿using Alldigit.IG.TradingFacade.Messages.Interfaces;
+﻿using Alldigit.IG.TradingFacade.Logic.Messages.Interfaces;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
