@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Linq;
+using FluentAssertions;
 
 namespace Alldigit.IG.TradingFacade.Tests.RestClientTests.SessionRestClientTests
 {
@@ -55,7 +57,7 @@ namespace Alldigit.IG.TradingFacade.Tests.RestClientTests.SessionRestClientTests
             Assert.AreEqual(ActiveAccountSessionToken, result.Session.ActiveAccountToken);
 
             Assert.IsNotNull(result.UserAccount);
-            // todo assert user account
+            result.UserAccount.ShouldBeEquivalentTo(responseContent);
         }
 
         protected static HttpResponseMessage SuccessMessageResponseWithHeadersAndBody<TContent>(IDictionary<string, string> headers, TContent content)
@@ -75,7 +77,26 @@ namespace Alldigit.IG.TradingFacade.Tests.RestClientTests.SessionRestClientTests
         {
             return new UserAccount
             {
-
+                AccountInfo = new AccountInfo
+                {
+                    Available = 111,
+                    Balance = 222,
+                    Deposit = 333,
+                    ProfitLoss = 444
+                },
+                AccountType = "DummyAccountType",
+                Accounts = (new[] { 1, 2, 3 })
+                    .Select(i => new Account
+                    {
+                        AccountId = "DummyAccountId" + i,
+                        AccountName = "DummyAccountName" + i,
+                        AccountType = "DummyAccountType" + i,
+                        Preferred = i == 1
+                    }),
+                ClientId = "DummyClientId",
+                CurrencyIsoCode = "DummyCurrencyIsoCode",
+                CurrentAccountId = "DummyCurrentAccountId",
+                LightstreamerEndpoint = "DummyLightstreamerEndpoint"
             };
         }
     }

@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Endpoints.cs" />
-    <Compile Include="Enums\IGEnvironment.cs" />
+    <Compile Include="Enums\Environment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionFacade.cs" />
   </ItemGroup>
