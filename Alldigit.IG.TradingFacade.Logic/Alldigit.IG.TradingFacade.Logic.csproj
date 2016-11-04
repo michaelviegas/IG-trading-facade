@@ -75,10 +75,15 @@
     <Compile Include="SessionRestClient.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Alldigit.IG.TradingFacade.Contracts\Alldigit.IG.TradingFacade.Contracts.csproj">
+      <Project>{eaa51d22-fa00-4fdb-98b2-977827953682}</Project>
+      <Name>Alldigit.IG.TradingFacade.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="..\Alldigit.IG.TradingFacade.Contracts\Alldigit.IG.TradingFacade.Contracts.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
