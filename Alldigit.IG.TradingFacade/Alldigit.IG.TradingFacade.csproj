@@ -46,10 +46,6 @@
     <Compile Include="SessionFacade.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Alldigit.IG.TradingFacade.Contracts\Alldigit.IG.TradingFacade.Contracts.csproj">
-      <Project>{eaa51d22-fa00-4fdb-98b2-977827953682}</Project>
-      <Name>Alldigit.IG.TradingFacade.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Alldigit.IG.TradingFacade.Logic\Alldigit.IG.TradingFacade.Logic.csproj">
       <Project>{3e42a2a5-4b06-47ca-a436-8e1b28ef3432}</Project>
       <Name>Alldigit.IG.TradingFacade.Logic</Name>
