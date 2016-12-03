@@ -1,7 +1,6 @@
-OIFS="$IFS"
-IFS='.'
-read -a PARSED <<< "${LATEST_TAG}"
-IFS="$OIFS"
+#!/bin/bash
+
+IFS='.' read -r -a PARSED <<< "$LATEST_TAG"
 
 latestMajor=${PARSED[0]}
 latestMinor=${PARSED[1]}
