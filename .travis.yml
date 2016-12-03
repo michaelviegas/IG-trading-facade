@@ -20,6 +20,6 @@ after_success:
 deploy:
   provider: script
   skip_cleanup: true
-  script: /bin/sh versioning.sh
+  script: /bin/bash versioning.sh
   on:
     branch: master

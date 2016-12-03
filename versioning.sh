@@ -1,5 +1,3 @@
-#!/bin/bash
-
 IFS='.' read -r -a PARSED <<< "$LATEST_TAG"
 
 latestMajor=${PARSED[0]}
@@ -19,4 +17,3 @@ env -i git tag $newVersion
 env -i git push origin --tags
 env -i nuget pack ./Alldigit.IG.TradingFacade.nuspec -Version $newVersion -IncludeReferencedProjects -Prop Configuration=Release
 env -i nuget push ./*.nupkg $NUGET_API_KEY -Source https://www.nuget.org/api/v2/package
-
