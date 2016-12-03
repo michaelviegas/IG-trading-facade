@@ -1,14 +1,23 @@
 #!/bin/sh
-set -ev
+set -v
+
+newMajor=$1
+newMinor=$2
+newRevision=0
+
+echo $newMajor
+echo $newMinor
+echo $newRevision
 
 latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+
+echo $latestTag
+
 parsed=(${latestTag//./ })
 latestMajor=${parsed[0]}
 latestMinor=${parsed[1]}
 latestRevision=${parsed[2]}
-newMajor=$1
-newMinor=$2
-newRevision=0
+
 
 if [ $newMajor == $latestMajor ] && [ $newMinor == $latestMinor ]; then
     newRevision=$(($latestRevision+1))
