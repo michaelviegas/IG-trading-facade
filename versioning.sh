@@ -1,4 +1,6 @@
-IFS='.' read -ra PARSED <<< "$LATEST_TAG"
+set -f
+
+PARSED=(${LATEST_TAG//:/ })
 latestMajor=${PARSED[0]}
 latestMinor=${PARSED[1]}
 latestRevision=${PARSED[2]}

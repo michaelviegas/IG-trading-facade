@@ -10,13 +10,13 @@ env:
   global:
     - MAJOR=1
     - MINOR=1
-    - LATEST_TAG="$(git describe --tags `git rev-list --tags --max-count=1`)"
 before_install:
   - sudo apt-get install nunit-console
 before_script:
   - nuget restore ./Alldigit.IG.TradingFacade.sln
 after_success:
   - nunit-console ./Alldigit.IG.TradingFacade.Tests/bin/Release/Alldigit.IG.TradingFacade.Tests.dll
+  - export LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
 deploy:
   provider: script
   skip_cleanup: true
