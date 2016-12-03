@@ -12,11 +12,9 @@ before_script:
   - nuget restore ./Alldigit.IG.TradingFacade.sln
 after_success:
   - nunit-console ./Alldigit.IG.TradingFacade.Tests/bin/Release/Alldigit.IG.TradingFacade.Tests.dll
-  - nuget pack ./Alldigit.IG.TradingFacade.nuspec -Version 1.0.$TRAVIS_BUILD_NUMBER -IncludeReferencedProjects -Prop Configuration=Release  
 deploy:
   provider: script
   skip_cleanup: true
-  script: nuget push ./*.nupkg $NUGET_API_KEY -Source https://www.nuget.org/api/v2/package
+  script: ./versioning.sh $MAJOR $MINOR
   on:
     branch: master
-  
