@@ -16,6 +16,8 @@ fi
 
 newVersion=$newMajor"."$newMinor"."$newRevision
 
+env -i git config --global user.email "builds@travis-ci.com"
+env -i git config --global user.name "Travis CI"
 env -i git tag $newVersion
 env -i git push origin --tags
 env -i nuget pack ./Alldigit.IG.TradingFacade.nuspec -Version $newVersion -IncludeReferencedProjects -Prop Configuration=Release
