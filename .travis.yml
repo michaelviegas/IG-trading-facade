@@ -19,6 +19,6 @@ after_success:
 deploy:
   provider: script
   skip_cleanup: true
-  script: ./versioning.sh $MAJOR $MINOR
+  script: ./versioning.sh
   on:
     branch: master

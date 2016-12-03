@@ -1,13 +1,6 @@
 #!/bin/sh
-set -v
 
-newMajor=$1
-newMinor=$2
-newRevision=0
-
-echo $newMajor
-echo $newMinor
-echo $newRevision
+set -ev
 
 latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 
@@ -18,12 +11,11 @@ latestMajor=${parsed[0]}
 latestMinor=${parsed[1]}
 latestRevision=${parsed[2]}
 
-
-if [ $newMajor == $latestMajor ] && [ $newMinor == $latestMinor ]; then
+if [ $MAJOR == $latestMajor ] && [ $MINOR == $latestMinor ]; then
     newRevision=$(($latestRevision+1))
 fi
 
-newVersion=$newMajor"."$newMinor"."$newRevision
+newVersion=$MAJOR"."$MINOR"."$newRevision
 
 env -i git config --global user.email "builds@travis-ci.com"
 env -i git config --global user.name "Travis CI"
