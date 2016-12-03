@@ -64,28 +64,12 @@ namespace Alldigit.IG.TradingFacade.Logic
 
             if (error != null)
             {
-                RaiseException(error);
+                throw new ApiAccessFailedException(error.ErrorCode, response.ReasonPhrase);
             }
             else
             {
-                RaiseException(response.ReasonPhrase);
+                throw new UnknownApiAccessFailedException(response.ReasonPhrase);
             }
-        }
-
-        private void RaiseException(string reasonPhrase)
-        {
-            throw new GeneralApiAccessFailedException(reasonPhrase);
-        }
-
-        private void RaiseException(Error error)
-        {
-            // todo handle exceptions
-            //switch (error.ErrorCode)
-            //{
-
-            //}
-
-            RaiseException(error.ErrorCode);
         }
 
         protected virtual IHttpClientAction WithAnonymousClient()

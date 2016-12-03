@@ -27,10 +27,10 @@ namespace Alldigit.IG.TradingFacade
         {
             switch (environment)
             {
-                case Enums.IGEnvironment.Demo:
+                case IGEnvironment.Demo:
                     return Endpoints.Demo;
 
-                case Enums.IGEnvironment.Live:
+                case IGEnvironment.Live:
                     return Endpoints.Live;
 
                 default:

@@ -2,9 +2,9 @@
 
 namespace Alldigit.IG.TradingFacade.Contracts.Exceptions
 {
-    public class GeneralApiAccessFailedException : Exception
+    public class UnknownApiAccessFailedException : Exception
     {
-        public GeneralApiAccessFailedException(string message)
+        public UnknownApiAccessFailedException(string message)
             : base(message)
         {}
     }

@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\GeneralApiAccessFailedException.cs" />
+    <Compile Include="Exceptions\ApiAccessFailedException.cs" />
+    <Compile Include="Exceptions\UnknownApiAccessFailedException.cs" />
     <Compile Include="ISessionFacade.cs" />
     <Compile Include="Messages\IAccount.cs" />
     <Compile Include="Messages\IAccountInfo.cs" />
