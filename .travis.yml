@@ -17,6 +17,8 @@ before_script:
 after_success:
   - nunit-console ./Alldigit.IG.TradingFacade.Tests/bin/Release/Alldigit.IG.TradingFacade.Tests.dll
   - export LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+  - git config --global user.email "builds@travis-ci.com"
+  - git config --global user.name "Travis CI"
 deploy:
   provider: script
   skip_cleanup: true
