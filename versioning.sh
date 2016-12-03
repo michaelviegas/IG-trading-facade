@@ -1,11 +1,4 @@
-#!/bin/sh
-
-set -ev
-
 latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
-
-echo $latestTag
-
 parsed=(${latestTag//./ })
 latestMajor=${parsed[0]}
 latestMinor=${parsed[1]}
