@@ -16,6 +16,7 @@ before_script:
   - nuget restore ./Alldigit.IG.TradingFacade.sln
 after_success:
   - nunit-console ./Alldigit.IG.TradingFacade.Tests/bin/Release/Alldigit.IG.TradingFacade.Tests.dll
+  - export latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 deploy:
   provider: script
   skip_cleanup: true
