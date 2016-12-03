@@ -1,17 +1,15 @@
-echo $latestTag
-echo $MAJOR
-echo $MINOR
-
-parsed=(${latestTag//./ })
-latestMajor=${parsed[0]}
-latestMinor=${parsed[1]}
-latestRevision=${parsed[2]}
+IFS='.' read -ra PARSED <<< "$LATEST_TAG"
+latestMajor=${PARSED[0]}
+latestMinor=${PARSED[1]}
+latestRevision=${PARSED[2]}
 
 if [ $MAJOR == $latestMajor ] && [ $MINOR == $latestMinor ]; then
     newRevision=$(($latestRevision+1))
 fi
 
 newVersion=$MAJOR"."$MINOR"."$newRevision
+
+echo $newVersion
 
 env -i git config --global user.email "builds@travis-ci.com"
 env -i git config --global user.name "Travis CI"
