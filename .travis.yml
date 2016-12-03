@@ -6,6 +6,9 @@ branches:
   only:
     - master
     - develop
+env:
+  - MAJOR=1
+  - MINOR=1
 before_install:
   - sudo apt-get install nunit-console
 before_script:
