@@ -1,6 +1,7 @@
 ﻿using Alldigit.IG.TradingFacade.Contracts.Enums;
 using Alldigit.IG.TradingFacade.Contracts.Messages;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Alldigit.IG.TradingFacade.Logic.Messages
 {
@@ -13,6 +14,7 @@ namespace Alldigit.IG.TradingFacade.Logic.Messages
         public string FormTitle { get; set; }
 
         [JsonProperty("formType")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public FormType FormType { get; set; }
 
         [JsonProperty("formUrl")]

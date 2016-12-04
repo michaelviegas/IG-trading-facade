@@ -1,6 +1,7 @@
 ﻿using Alldigit.IG.TradingFacade.Contracts.Enums;
 using Alldigit.IG.TradingFacade.Contracts.Messages;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 
 namespace Alldigit.IG.TradingFacade.Logic.Messages
@@ -8,6 +9,7 @@ namespace Alldigit.IG.TradingFacade.Logic.Messages
     public class UserAccount : IUserAccount
     {
         [JsonProperty("accountType")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public AccountType AccountType { get; set; }
 
         [JsonProperty("accountInfo")]
@@ -17,6 +19,7 @@ namespace Alldigit.IG.TradingFacade.Logic.Messages
         public IEnumerable<Account> Accounts { get; set; }
 
         [JsonProperty("authenticationStatus")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public AuthenticationStatus? AuthenticationStatus { get; set; }
 
         [JsonProperty("clientId")]
@@ -53,6 +56,7 @@ namespace Alldigit.IG.TradingFacade.Logic.Messages
         public string LightstreamerEndpoint { get; set; }
 
         [JsonProperty("reroutingEnvironment")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public ReroutingEnvironment? ReroutingEnvironment { get; set; }
 
         [JsonProperty("timezoneOffset")]
