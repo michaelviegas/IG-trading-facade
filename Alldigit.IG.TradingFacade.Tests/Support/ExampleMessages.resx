@@ -118,13 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Account" xml:space="preserve">
-    <value>{"accountId":"dummyAccountId","accountName":"dummyAccountName","preferred":true,"accountType":"dummyAccountType"}</value>
+    <value>{"accountId":"dummyAccountId","accountName":"dummyAccountName","preferred":true,"accountType":"PHYSICAL"}</value>
   </data>
   <data name="AccountInfo" xml:space="preserve">
     <value>{"balance":11.11,"deposit":22.22,"profitLoss":33.33,"available":44.44}</value>
   </data>
+  <data name="FormDetails" xml:space="preserve">
+    <value>{"formDismissible":true,"formTitle":"dummyFormTitle","formType":"KYC","formUrl":"dummyFormUrl"}</value>
+  </data>
   <data name="UserAccount" xml:space="preserve">
-    <value>{"accountType":"dummyAccountType","accountInfo":{"balance":11.11,"deposit":22.22,"profitLoss":33.33,"available":44.44},"currencyIsoCode":"dummyCurrencyIsoCode","currentAccountId":"dummyAccountId","lightstreamerEndpoint":"dummyLightstreamerEndpoint","accounts":[{"accountId":"dummyAccountId0","accountName":"dummyAccountName0","preferred":true,"accountType":"dummyAccountType0"},{"accountId":"dummyAccountId1","accountName":"dummyAccountName1","preferred":false,"accountType":"dummyAccountType1"},{"accountId":"dummyAccountId2","accountName":"dummyAccountName2","preferred":false,"accountType":"dummyAccountType2"}],"clientId":"dummyClientId"}</value>
+    <value>{"accountType":"CFD","accountInfo":{"balance":11.11,"deposit":22.22,"profitLoss":33.33,"available":44.44},"accounts":[{"accountId":"dummyAccountId0","accountName":"dummyAccountName0","preferred":true,"accountType":"CFD"},{"accountId":"dummyAccountId1","accountName":"dummyAccountName1","preferred":false,"accountType":"PHYSICAL"},{"accountId":"dummyAccountId2","accountName":"dummyAccountName2","preferred":false,"accountType":"SPREADBET"}],"authenticationStatus":null,"clientId":"dummyClientId","currencyIsoCode":"dummyCurrencyIsoCode","currencySymbol":null,"currentAccountId":"dummyAccountId","dealingEnabled":false,"encrypted":false,"formDetails":null,"hasActiveDemoAccounts":false,"hasActiveLiveAccounts":false,"igCompany":null,"lightstreamerEndpoint":"dummyLightstreamerEndpoint","reroutingEnvironment":null,"timezoneOffset":0.0,"trailingStopsEnabled":false}</value>
   </data>
   <data name="UserCredentials" xml:space="preserve">
     <value>{"identifier":"dummyUsername","password":"dummyPassword","encryptedPassword":true}</value>

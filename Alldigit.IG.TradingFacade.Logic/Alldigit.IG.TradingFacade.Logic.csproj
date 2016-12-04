@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Http\HttpContentConverter.cs" />
+    <Compile Include="Messages\FormDetails.cs" />
     <Compile Include="RestClientBase.cs" />
     <Compile Include="Helpers\MessageAssembler.cs" />
     <Compile Include="Http\HttpClientAction.cs" />

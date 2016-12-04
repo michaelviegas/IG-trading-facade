@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Linq;
 using FluentAssertions;
+using Alldigit.IG.TradingFacade.Contracts.Enums;
 
 namespace Alldigit.IG.TradingFacade.Tests.RestClientTests.SessionRestClientTests
 {
@@ -84,13 +85,13 @@ namespace Alldigit.IG.TradingFacade.Tests.RestClientTests.SessionRestClientTests
                     Deposit = 333,
                     ProfitLoss = 444
                 },
-                AccountType = "DummyAccountType",
+                AccountType = AccountType.CFD,
                 Accounts = (new[] { 1, 2, 3 })
                     .Select(i => new Account
                     {
                         AccountId = "DummyAccountId" + i,
                         AccountName = "DummyAccountName" + i,
-                        AccountType = "DummyAccountType" + i,
+                        AccountType = AccountType.Physical,
                         Preferred = i == 1
                     }),
                 ClientId = "DummyClientId",

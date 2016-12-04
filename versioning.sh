@@ -4,10 +4,13 @@ IFS='.' read -r -a PARSED <<< "$LATEST_TAG"
 latestMajor=${PARSED[0]}
 latestMinor=${PARSED[1]}
 latestRevision=${PARSED[2]}
+
+newMajor=$1
+newMinor=$2 
 newRevision=0
 
-if [ $MAJOR == $latestMajor ] && [ $MINOR == $latestMinor ]; then
+if [ $newMajor == $latestMajor ] && [ $newMinor == $latestMinor ]; then
     newRevision=$(($latestRevision+1))
 fi
 
-echo $MAJOR"."$MINOR"."$newRevision
+echo $newMajor"."$newMinor"."$newRevision

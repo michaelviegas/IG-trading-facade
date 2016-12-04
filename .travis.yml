@@ -6,17 +6,13 @@ branches:
   only:
     - master
     - develop
-env:
-  global:
-    - MAJOR=1
-    - MINOR=1
 before_install:
   - sudo apt-get install nunit-console
 before_script:
   - nuget restore ./Alldigit.IG.TradingFacade.sln
 after_success:
   - nunit-console ./Alldigit.IG.TradingFacade.Tests/bin/Release/Alldigit.IG.TradingFacade.Tests.dll
-  - export NEW_VERSION=$(/bin/bash versioning.sh)
+  - export NEW_VERSION=$(/bin/bash versioning.sh $MAJOR $MINOR)
   - nuget pack ./Alldigit.IG.TradingFacade.nuspec -Version $NEW_VERSION -IncludeReferencedProjects -Prop Configuration=Release
   - git tag $NEW_VERSION
 deploy:

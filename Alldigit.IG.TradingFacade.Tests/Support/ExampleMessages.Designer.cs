@@ -61,7 +61,7 @@ namespace Alldigit.IG.TradingFacade.Tests.Support {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;accountId&quot;:&quot;dummyAccountId&quot;,&quot;accountName&quot;:&quot;dummyAccountName&quot;,&quot;preferred&quot;:true,&quot;accountType&quot;:&quot;dummyAccountType&quot;}.
+        ///   Looks up a localized string similar to {&quot;accountId&quot;:&quot;dummyAccountId&quot;,&quot;accountName&quot;:&quot;dummyAccountName&quot;,&quot;preferred&quot;:true,&quot;accountType&quot;:&quot;PHYSICAL&quot;}.
         /// </summary>
         internal static string Account {
             get {
@@ -79,7 +79,16 @@ namespace Alldigit.IG.TradingFacade.Tests.Support {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;accountType&quot;:&quot;dummyAccountType&quot;,&quot;accountInfo&quot;:{&quot;balance&quot;:11.11,&quot;deposit&quot;:22.22,&quot;profitLoss&quot;:33.33,&quot;available&quot;:44.44},&quot;currencyIsoCode&quot;:&quot;dummyCurrencyIsoCode&quot;,&quot;currentAccountId&quot;:&quot;dummyAccountId&quot;,&quot;lightstreamerEndpoint&quot;:&quot;dummyLightstreamerEndpoint&quot;,&quot;accounts&quot;:[{&quot;accountId&quot;:&quot;dummyAccountId0&quot;,&quot;accountName&quot;:&quot;dummyAccountName0&quot;,&quot;preferred&quot;:true,&quot;accountType&quot;:&quot;dummyAccountType0&quot;},{&quot;accountId&quot;:&quot;dummyAccountId1&quot;,&quot;accountName&quot;:&quot;dummyAccountName1&quot;,&quot;preferred&quot;:false,&quot;accountType&quot;:&quot;dummyAccountType1&quot;},{&quot;accountId&quot;:&quot;du [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to {&quot;formDismissible&quot;:true,&quot;formTitle&quot;:&quot;dummyFormTitle&quot;,&quot;formType&quot;:&quot;KYC&quot;,&quot;formUrl&quot;:&quot;dummyFormUrl&quot;}.
+        /// </summary>
+        internal static string FormDetails {
+            get {
+                return ResourceManager.GetString("FormDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;accountType&quot;:&quot;CFD&quot;,&quot;accountInfo&quot;:{&quot;balance&quot;:11.11,&quot;deposit&quot;:22.22,&quot;profitLoss&quot;:33.33,&quot;available&quot;:44.44},&quot;accounts&quot;:[{&quot;accountId&quot;:&quot;dummyAccountId0&quot;,&quot;accountName&quot;:&quot;dummyAccountName0&quot;,&quot;preferred&quot;:true,&quot;accountType&quot;:&quot;CFD&quot;},{&quot;accountId&quot;:&quot;dummyAccountId1&quot;,&quot;accountName&quot;:&quot;dummyAccountName1&quot;,&quot;preferred&quot;:false,&quot;accountType&quot;:&quot;PHYSICAL&quot;},{&quot;accountId&quot;:&quot;dummyAccountId2&quot;,&quot;accountName&quot;:&quot;dummyAccountName2&quot;,&quot;preferred&quot;:false,&quot;accountType&quot;:&quot;SPREADBET&quot;}],&quot;authenticationStatus&quot;:null,&quot;clientId&quot;:&quot;dummyClientId&quot;,&quot;currencyIsoCode [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UserAccount {
             get {

@@ -1,4 +1,5 @@
-﻿using Alldigit.IG.TradingFacade.Contracts.Messages;
+﻿using Alldigit.IG.TradingFacade.Contracts.Enums;
+using Alldigit.IG.TradingFacade.Contracts.Messages;
 using Newtonsoft.Json;
 
 namespace Alldigit.IG.TradingFacade.Logic.Messages
@@ -15,6 +16,6 @@ namespace Alldigit.IG.TradingFacade.Logic.Messages
         public bool Preferred { get; set; }
 
         [JsonProperty("accountType")]
-        public string AccountType { get; set; }
+        public AccountType AccountType { get; set; }
     }
 }

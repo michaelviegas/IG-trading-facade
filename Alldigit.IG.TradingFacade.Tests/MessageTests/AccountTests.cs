@@ -1,4 +1,5 @@
-﻿using Alldigit.IG.TradingFacade.Contracts.Messages;
+﻿using Alldigit.IG.TradingFacade.Contracts.Enums;
+using Alldigit.IG.TradingFacade.Contracts.Messages;
 using Alldigit.IG.TradingFacade.Logic.Messages;
 using Alldigit.IG.TradingFacade.Tests.Support;
 using NUnit.Framework;
@@ -11,7 +12,7 @@ namespace Alldigit.IG.TradingFacade.Tests.MessageTests
         private const string AccountId = "dummyAccountId";
         private const string AccountName = "dummyAccountName";
         private const bool Preferred = true;
-        private const string AccountType = "dummyAccountType";
+        private static AccountType AccountType = AccountType.Physical;
 
         [Test]
         public void ExternalSystemResponseRoundTrip()
