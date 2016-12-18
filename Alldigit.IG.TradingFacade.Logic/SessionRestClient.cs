@@ -21,7 +21,7 @@ namespace Alldigit.IG.TradingFacade.Logic
                 .ForApplication(apiKey)
                 .OnVersion(2)
                 .Post(request)
-                .To("gateway/deal/session")
+                .To("session")
                 .ForHttpResponseMessageReader();
 
             return await BuildAuthenticationResult(response);
@@ -32,7 +32,7 @@ namespace Alldigit.IG.TradingFacade.Logic
             return await WithAnonymousClient()
                 .ForApplication(apiKey)
                 .Get()
-                .To("gateway/deal/session/encryptionKey")
+                .To("session/encryptionKey")
                 .For<EncryptionKeyMessage>();
         }
 

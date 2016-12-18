@@ -32,7 +32,8 @@ namespace Alldigit.IG.TradingFacade
         /// <summary>
         /// Returns the encryption key to use in order to send the user password in an encrypted form
         /// </summary>
-        /// <returns></returns>
+        /// <param name="apiKey">API key identifies the application and authorises its use</param>
+        /// <returns>Encryption key</returns>
         public Task<IEncryptionKey> GetEncryptionKey(string apiKey)
         {
             return _restClient.GetEncryptionKey(apiKey);
