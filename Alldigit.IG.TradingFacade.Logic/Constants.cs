@@ -2,6 +2,8 @@
 {
     public static class Constants
     {
+        public const string AllMediaTypesRange = "*/*";
+
         public const string JsonContentType = "application/json";
 
         public const string VersionHeaderName = "Version";

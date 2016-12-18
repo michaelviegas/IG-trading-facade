@@ -62,7 +62,6 @@ namespace Alldigit.IG.TradingFacade.Logic
         private async Task ExtractException(HttpResponseMessage response)
         {
             var reader = HttpResponseMessageReader.Create(response);
-
             var error = await reader.ReadContent<Error>();
 
             if (error != null)
