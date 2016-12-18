@@ -79,6 +79,15 @@ namespace Alldigit.IG.TradingFacade.Tests.Support {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;encryptionKey&quot;:&quot;dummyEncryptionKey&quot;,&quot;timeStamp&quot;:9876}.
+        /// </summary>
+        internal static string EncryptionKey {
+            get {
+                return ResourceManager.GetString("EncryptionKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;formDismissible&quot;:true,&quot;formTitle&quot;:&quot;dummyFormTitle&quot;,&quot;formType&quot;:&quot;KYC&quot;,&quot;formUrl&quot;:&quot;dummyFormUrl&quot;}.
         /// </summary>
         internal static string FormDetails {

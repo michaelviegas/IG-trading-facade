@@ -1,4 +1,4 @@
-﻿namespace Alldigit.IG.TradingFacade.Http.Interfaces
+﻿namespace Alldigit.IG.TradingFacade.Logic.Http.Interfaces
 {
     public interface IHttpClientActionWithBody
     {

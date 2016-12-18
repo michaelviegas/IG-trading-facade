@@ -1,12 +1,8 @@
 ﻿using Alldigit.IG.TradingFacade.Contracts.Exceptions;
-using Alldigit.IG.TradingFacade.Http;
-using Alldigit.IG.TradingFacade.Http.Interfaces;
 using Alldigit.IG.TradingFacade.Logic.Http;
-using Alldigit.IG.TradingFacade.Logic.Interfaces;
+using Alldigit.IG.TradingFacade.Logic.Http.Interfaces;
 using Alldigit.IG.TradingFacade.Logic.Messages;
-using Newtonsoft.Json;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Alldigit.IG.TradingFacade.Logic
@@ -26,27 +22,33 @@ namespace Alldigit.IG.TradingFacade.Logic
         {
             using (var content = HttpContentConverter.ToJsonStringContent(request))
             {
-                return await SendAsyncBodyAndCheckStatus(clientWrapper, action, url, content);
+                var requestMessage = CreateRequest(action, url, content);
+
+                return await SendRequestAndCheckStatus(clientWrapper, requestMessage);
             }
         }
 
-        private async Task<HttpResponseMessage> SendAsyncBodyAndCheckStatus(IHttpClientWrapper clientWrapper, HttpMethod action, string url, ByteArrayContent content)
+        async Task<HttpResponseMessage> IHttpClientCallback.SendAndCheckStatus(IHttpClientWrapper clientWrapper, HttpMethod action, string url)
         {
-            var request = CreateRequest(action, url, content);
+            var requestMessage = CreateRequest(action, url);
 
-            var response = await clientWrapper.SendAsync(request);
+            return await SendRequestAndCheckStatus(clientWrapper, requestMessage);
+        }
+
+        private static HttpRequestMessage CreateRequest(HttpMethod action, string url, ByteArrayContent content = null)
+        {
+            var request = new HttpRequestMessage(action, url);
+            if (content != null) request.Content = content;
+            return request;
+        }
+
+        private async Task<HttpResponseMessage> SendRequestAndCheckStatus(IHttpClientWrapper clientWrapper, HttpRequestMessage requestMessage)
+        {
+            var response = await clientWrapper.SendAsync(requestMessage);
 
             await CheckResponseStatus(response);
 
             return response;
-        }
-
-        private static HttpRequestMessage CreateRequest(HttpMethod action, string url, ByteArrayContent content)
-        {
-            return new HttpRequestMessage(action, url)
-            {
-                Content = content
-            };
         }
 
         private async Task CheckResponseStatus(HttpResponseMessage response)
@@ -60,6 +62,7 @@ namespace Alldigit.IG.TradingFacade.Logic
         private async Task ExtractException(HttpResponseMessage response)
         {
             var reader = HttpResponseMessageReader.Create(response);
+
             var error = await reader.ReadContent<Error>();
 
             if (error != null)

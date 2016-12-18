@@ -29,6 +29,15 @@ namespace Alldigit.IG.TradingFacade
             return _restClient.Login(apiKey, userCredentials);
         }
 
+        /// <summary>
+        /// Returns the encryption key to use in order to send the user password in an encrypted form
+        /// </summary>
+        /// <returns></returns>
+        public Task<IEncryptionKey> GetEncryptionKey(string apiKey)
+        {
+            return _restClient.GetEncryptionKey(apiKey);
+        }
+
         private static string GetEnvironmentEndpoint(IGEnvironment environment)
         {
             switch (environment)

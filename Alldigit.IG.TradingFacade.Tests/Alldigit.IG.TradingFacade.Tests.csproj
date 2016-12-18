@@ -77,7 +77,9 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="MessageTests\EncryptionKeyTests.cs" />
     <Compile Include="MessageTests\FormDetailsTests.cs" />
+    <Compile Include="RestClientTests\SessionRestClientTests\GetEncryptionKeyTests.cs" />
     <Compile Include="Support\ExampleMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

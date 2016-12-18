@@ -123,6 +123,9 @@
   <data name="AccountInfo" xml:space="preserve">
     <value>{"balance":11.11,"deposit":22.22,"profitLoss":33.33,"available":44.44}</value>
   </data>
+  <data name="EncryptionKey" xml:space="preserve">
+    <value>{"encryptionKey":"dummyEncryptionKey","timeStamp":9876}</value>
+  </data>
   <data name="FormDetails" xml:space="preserve">
     <value>{"formDismissible":true,"formTitle":"dummyFormTitle","formType":"KYC","formUrl":"dummyFormUrl"}</value>
   </data>

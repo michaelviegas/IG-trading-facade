@@ -1,11 +1,11 @@
 ﻿using Alldigit.IG.TradingFacade.Contracts.Messages;
-using Alldigit.IG.TradingFacade.Http.Interfaces;
+using Alldigit.IG.TradingFacade.Logic.Http.Interfaces;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Alldigit.IG.TradingFacade.Http
+namespace Alldigit.IG.TradingFacade.Logic.Http
 {
     public class HttpClientWrapper : IHttpClientWrapper
     {

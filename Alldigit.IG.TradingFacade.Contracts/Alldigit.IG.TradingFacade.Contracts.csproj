@@ -52,6 +52,7 @@
     <Compile Include="Exceptions\ApiAccessFailedException.cs" />
     <Compile Include="Exceptions\UnknownApiAccessFailedException.cs" />
     <Compile Include="ISessionFacade.cs" />
+    <Compile Include="Messages\IEncryptionKey.cs" />
     <Compile Include="Messages\IFormDetails.cs" />
     <Compile Include="Messages\IAccount.cs" />
     <Compile Include="Messages\IAccountInfo.cs" />

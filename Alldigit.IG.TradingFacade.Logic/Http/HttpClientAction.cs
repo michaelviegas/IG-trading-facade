@@ -1,8 +1,7 @@
-﻿using Alldigit.IG.TradingFacade.Http.Interfaces;
-using Alldigit.IG.TradingFacade.Logic.Interfaces;
+﻿using Alldigit.IG.TradingFacade.Logic.Http.Interfaces;
 using System.Net.Http;
 
-namespace Alldigit.IG.TradingFacade.Http
+namespace Alldigit.IG.TradingFacade.Logic.Http
 {
     public class HttpClientAction : IHttpClientAction
     {
@@ -30,6 +29,11 @@ namespace Alldigit.IG.TradingFacade.Http
         {
             _clientWrapper.SetVersionRequestHeader(version);
             return this;
+        }
+
+        IHttpClientActionNoBody IHttpClientAction.Get()
+        {
+            return new HttpClientActionNoBody(_clientWrapper, _owner, HttpMethod.Get);
         }
 
         IHttpClientActionWithBody IHttpClientAction.Post<TRequest>(TRequest request)

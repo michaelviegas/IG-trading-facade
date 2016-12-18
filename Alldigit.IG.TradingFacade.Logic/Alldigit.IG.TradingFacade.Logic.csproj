@@ -49,7 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Http\HttpClientActionNoBody.cs" />
+    <Compile Include="Http\HttpClientActionNoBodyWithResponse.cs" />
     <Compile Include="Http\HttpContentConverter.cs" />
+    <Compile Include="Http\Interfaces\IHttpClientActionNoBody.cs" />
+    <Compile Include="Http\Interfaces\IHttpClientActionNoBodyWithResponse.cs" />
+    <Compile Include="Messages\EncryptionKey.cs" />
     <Compile Include="Messages\FormDetails.cs" />
     <Compile Include="RestClientBase.cs" />
     <Compile Include="Helpers\MessageAssembler.cs" />

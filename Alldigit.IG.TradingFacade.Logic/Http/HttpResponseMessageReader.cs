@@ -1,11 +1,11 @@
-﻿using Alldigit.IG.TradingFacade.Http.Interfaces;
+﻿using Alldigit.IG.TradingFacade.Logic.Http.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Alldigit.IG.TradingFacade.Http
+namespace Alldigit.IG.TradingFacade.Logic.Http
 {
     public class HttpResponseMessageReader : IHttpResponseMessageReader
     {

@@ -1,9 +1,8 @@
-﻿using Alldigit.IG.TradingFacade.Http.Interfaces;
-using Alldigit.IG.TradingFacade.Logic.Interfaces;
+﻿using Alldigit.IG.TradingFacade.Logic.Http.Interfaces;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Alldigit.IG.TradingFacade.Http
+namespace Alldigit.IG.TradingFacade.Logic.Http
 {
     public class HttpClientActionWithBodyAndResponse<TRequest> : IHttpClientActionWithBodyAndResponse
     {

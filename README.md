@@ -37,3 +37,12 @@ IUserAccount userAccount = authResult.UserAccount;
 // Two security access tokens are returned in the response, and are required to be submitted in future API requests 
 ISession session = authResult.Session;
 ```
+
+### GetEncryptionKey
+
+Returns the encryption key to use in order to send the user password in an encrypted form. 
+
+```csharp
+string apiKey = "API_KEY";
+IEncryptionKey encryptionKeyResult = await sessionFacade.GetEncryptionKey(apiKey);
+```

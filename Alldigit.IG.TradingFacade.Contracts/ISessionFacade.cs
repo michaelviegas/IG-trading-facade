@@ -12,5 +12,11 @@ namespace Alldigit.IG.TradingFacade.Contracts
         /// <param name="userCredentials">Client login credentials</param>
         /// <returns>Trading session and summary of client account information</returns>
         Task<IAuthenticationResult> Login(string apiKey, IUserCredentials userCredentials);
+
+        /// <summary>
+        /// Returns the encryption key to use in order to send the user password in an encrypted form
+        /// </summary>
+        /// <returns></returns>
+        Task<IEncryptionKey> GetEncryptionKey(string apiKey);
     }
 }
